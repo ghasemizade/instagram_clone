@@ -14,6 +14,7 @@ class switchAccountScreen extends StatelessWidget {
           children: [
             Expanded(
               child: Stack(
+                alignment: AlignmentDirectional.center,
                 children: [
                   Container(
                     decoration: BoxDecoration(
@@ -25,7 +26,8 @@ class switchAccountScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Center(
+                  Positioned(
+                    top: 220,
                     child: ClipRRect(
                       child: BackdropFilter(
                         filter: ImageFilter.blur(
@@ -33,8 +35,8 @@ class switchAccountScreen extends StatelessWidget {
                           sigmaY: 10.0,
                         ),
                         child: Container(
-                          height: 352,
-                          width: 340,
+                          height: 350,
+                          width: 320,
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
                               begin: Alignment.topLeft,
@@ -73,6 +75,12 @@ class switchAccountScreen extends StatelessWidget {
                                 height: 20,
                               ),
                               ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  primary: Color(0xffF35383),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(13),
+                                  ),
+                                ),
                                 onPressed: () {},
                                 child: Text('Confirm'),
                               ),

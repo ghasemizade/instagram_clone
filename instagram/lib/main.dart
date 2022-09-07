@@ -47,14 +47,20 @@ class splashScreen extends StatelessWidget {
                 children: [
                   Text(
                     'from',
-                    style: TextStyle(color: Colors.grey),
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                   SizedBox(
-                    height: 5.0,
+                    height: 2.0,
                   ),
                   Text(
                     'FALCON',
-                    style: TextStyle(color: Colors.blue),
+                    style: TextStyle(
+                      color: Colors.blue,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ],
               ),
