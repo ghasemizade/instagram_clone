@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/screens/login_page.dart';
 import 'package:instagram/screens/switch_acount.dart';
 
 void main() {
@@ -11,8 +12,26 @@ class Application extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        textTheme: TextTheme(
+          headline4: TextStyle(
+            fontFamily: 'GB',
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            color: Colors.white,
+          ),
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+              primary: Color(0xffF35383),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(13),
+              ),
+              textStyle: TextStyle(fontFamily: 'GB', fontSize: 16)),
+        ),
+      ),
       debugShowCheckedModeBanner: false,
-      home: switchAccountScreen(),
+      home: loginPage(),
     );
   }
 }
