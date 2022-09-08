@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/screens/home_screen.dart';
 import 'package:instagram/screens/login_page.dart';
 import 'package:instagram/screens/switch_acount.dart';
 
@@ -23,15 +24,16 @@ class Application extends StatelessWidget {
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-              primary: Color(0xffF35383),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(13),
-              ),
-              textStyle: TextStyle(fontFamily: 'GB', fontSize: 16)),
+            primary: Color(0xffF35383),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(13),
+            ),
+            textStyle: TextStyle(fontFamily: 'GB', fontSize: 16),
+          ),
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: loginPage(),
+      home: homePage(),
     );
   }
 }
