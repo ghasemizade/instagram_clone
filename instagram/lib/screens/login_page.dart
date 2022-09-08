@@ -8,7 +8,18 @@ class loginPage extends StatefulWidget {
 }
 
 class _loginPageState extends State<loginPage> {
-  FocusNode wicher = FocusNode();
+  FocusNode wicher0 = FocusNode();
+  FocusNode wicher1 = FocusNode();
+  @override
+  void initState() {
+    super.initState();
+    wicher0.addListener(() {
+      setState(() {});
+    });
+    wicher1.addListener(() {
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +52,7 @@ class _loginPageState extends State<loginPage> {
       left: 0,
       right: 0,
       bottom: 0,
-      top: 80,
+      top: 40,
       child: Column(
         children: [
           Expanded(
@@ -79,7 +90,7 @@ class _loginPageState extends State<loginPage> {
                     width: double.infinity,
                   ),
                   SizedBox(
-                    height: 50.0,
+                    height: 30.0,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -98,7 +109,7 @@ class _loginPageState extends State<loginPage> {
                     ],
                   ),
                   SizedBox(
-                    height: 34,
+                    height: 30,
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
@@ -107,10 +118,15 @@ class _loginPageState extends State<loginPage> {
                     child: SizedBox(
                       height: 45.0,
                       child: TextField(
+                        focusNode: wicher0,
                         decoration: InputDecoration(
                           labelText: '  Email',
                           labelStyle: TextStyle(
-                            color: Colors.grey,
+                            fontFamily: 'GM',
+                            fontSize: 18,
+                            color: wicher0.hasFocus
+                                ? Color(0xffF35383)
+                                : Colors.grey,
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.all(
@@ -144,10 +160,15 @@ class _loginPageState extends State<loginPage> {
                     child: SizedBox(
                       height: 45.0,
                       child: TextField(
+                        focusNode: wicher1,
                         decoration: InputDecoration(
                           labelText: '  Password ',
                           labelStyle: TextStyle(
-                            color: Colors.grey,
+                            fontFamily: 'GM',
+                            fontSize: 18,
+                            color: wicher1.hasFocus
+                                ? Color(0xffF35383)
+                                : Colors.grey,
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.all(
@@ -180,8 +201,30 @@ class _loginPageState extends State<loginPage> {
                     child: ElevatedButton(
                       style: Theme.of(context).elevatedButtonTheme.style,
                       onPressed: () {},
-                      child: Text('Log In'),
+                      child: Text('sign in'),
                     ),
+                  ),
+                  SizedBox(
+                    height: 30.0,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Don\'t have an account? /',
+                        style: TextStyle(
+                          fontFamily: 'GM',
+                          color: Colors.grey,
+                        ),
+                      ),
+                      Text(
+                        ' Sign Up',
+                        style: TextStyle(
+                          fontFamily: 'GM',
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -190,5 +233,12 @@ class _loginPageState extends State<loginPage> {
         ),
       ],
     );
+  }
+
+  @override
+  void dispose() {
+    wicher0.dispose();
+    wicher1.dispose();
+    super.dispose();
   }
 }
