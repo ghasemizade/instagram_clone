@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
-class loginPage extends StatelessWidget {
+class loginPage extends StatefulWidget {
   const loginPage({Key? key}) : super(key: key);
+
+  @override
+  State<loginPage> createState() => _loginPageState();
+}
+
+class _loginPageState extends State<loginPage> {
+  FocusNode wicher = FocusNode();
 
   @override
   Widget build(BuildContext context) {
@@ -162,6 +169,18 @@ class loginPage extends StatelessWidget {
                           ),
                         ),
                       ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30.0,
+                  ),
+                  SizedBox(
+                    height: 45,
+                    width: 130,
+                    child: ElevatedButton(
+                      style: Theme.of(context).elevatedButtonTheme.style,
+                      onPressed: () {},
+                      child: Text('Log In'),
                     ),
                   ),
                 ],
