@@ -38,47 +38,62 @@ class _homePageState extends State<homePage> {
         elevation: 0,
       ),
       body: SafeArea(
-        child: Row(
+        child: Column(
           children: [
-            _getStoryBox(),
-            SizedBox(
-              width: 10.0,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
+            Row(
               children: [
+                _getStoryBox(),
                 SizedBox(
-                  height: 20.0,
+                  width: 10.0,
                 ),
-                Text(
-                  'HoseinGhasemizade',
-                  style: TextStyle(
-                    fontFamily: 'GB',
-                    color: Colors.white,
-                    fontSize: 16.0,
-                  ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBox(
+                      height: 20.0,
+                    ),
+                    Text(
+                      'HoseinGhasemizade',
+                      style: TextStyle(
+                        fontFamily: 'GB',
+                        color: Colors.white,
+                        fontSize: 16.0,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5.0,
+                    ),
+                    Text(
+                      'frontend developer',
+                      style: TextStyle(
+                        fontFamily: 'GB',
+                        color: Colors.white,
+                        fontSize: 14.0,
+                      ),
+                    ),
+                  ],
+                ),
+                Spacer(),
+                Icon(
+                  Icons.more_vert,
+                  color: Colors.white,
                 ),
                 SizedBox(
-                  height: 5.0,
-                ),
-                Text(
-                  'frontend developer',
-                  style: TextStyle(
-                    fontFamily: 'GB',
-                    color: Colors.white,
-                    fontSize: 14.0,
-                  ),
+                  width: 10.0,
                 ),
               ],
             ),
-            Spacer(),
-            Icon(
-              Icons.more_vert,
-              color: Colors.white,
-            ),
             SizedBox(
-              width: 10.0,
+              height: 10.0,
+            ),
+            Container(
+              height: 294,
+              width: 394,
+              decoration: BoxDecoration(),
+              child: Image(
+                image: AssetImage('assets/Images/post1.jpg'),
+              ),
             ),
           ],
         ),
