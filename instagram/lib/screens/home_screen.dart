@@ -40,64 +40,158 @@ class _homePageState extends State<homePage> {
       body: SafeArea(
         child: Column(
           children: [
-            Row(
-              children: [
-                _getStoryBox(),
-                SizedBox(
-                  width: 10.0,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    SizedBox(
-                      height: 20.0,
-                    ),
-                    Text(
-                      'HoseinGhasemizade',
-                      style: TextStyle(
-                        fontFamily: 'GB',
-                        color: Colors.white,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 5.0,
-                    ),
-                    Text(
-                      'frontend developer',
-                      style: TextStyle(
-                        fontFamily: 'GB',
-                        color: Colors.white,
-                        fontSize: 14.0,
-                      ),
-                    ),
-                  ],
-                ),
-                Spacer(),
-                Icon(
-                  Icons.more_vert,
-                  color: Colors.white,
-                ),
-                SizedBox(
-                  width: 10.0,
-                ),
-              ],
-            ),
+            _getHeaderPost(),
             SizedBox(
-              height: 10.0,
+              height: 15.0,
             ),
             Container(
-              height: 294,
+              height: 440,
               width: 394,
-              decoration: BoxDecoration(),
-              child: Image(
-                image: AssetImage('assets/Images/post1.jpg'),
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+              ),
+              child: Column(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Image(
+                      image: AssetImage('assets/Images/post_cover1.jpg'),
+                    ),
+                  ),
+                  Stack(
+                    alignment: AlignmentDirectional.bottomCenter,
+                    children: [
+                      Container(
+                        height: 46,
+                        width: 340,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8.0),
+                          gradient: LinearGradient(
+                            colors: [
+                              Color.fromRGBO(255, 255, 255, .5),
+                              Color.fromRGBO(255, 255, 255, .2),
+                            ],
+                            begin: Alignment.centerLeft,
+                            end: Alignment.centerRight,
+                          ),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 20.0,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  Image(
+                                    image: AssetImage(
+                                        'assets/Images/icon_hart.png'),
+                                  ),
+                                  SizedBox(
+                                    width: 5.0,
+                                  ),
+                                  Text(
+                                    '1.3K',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: 'GM',
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Image(
+                                    image: AssetImage(
+                                        'assets/Images/icon_comments.png'),
+                                  ),
+                                  SizedBox(
+                                    width: 5.0,
+                                  ),
+                                  Text(
+                                    '666',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontFamily: 'GM',
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Image(
+                                image:
+                                    AssetImage('assets/Images/icon_share.png'),
+                              ),
+                              Image(
+                                image:
+                                    AssetImage('assets/Images/icon_save.png'),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class _getHeaderPost extends StatelessWidget {
+  const _getHeaderPost({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        _getStoryBox(),
+        SizedBox(
+          width: 10.0,
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox(
+              height: 20.0,
+            ),
+            Text(
+              'HoseinGhasemizade',
+              style: TextStyle(
+                fontFamily: 'GB',
+                color: Colors.white,
+                fontSize: 16.0,
+              ),
+            ),
+            SizedBox(
+              height: 5.0,
+            ),
+            Text(
+              'frontend developer',
+              style: TextStyle(
+                fontFamily: 'GB',
+                color: Colors.white,
+                fontSize: 14.0,
+              ),
+            ),
+          ],
+        ),
+        Spacer(),
+        Icon(
+          Icons.more_vert,
+          color: Colors.white,
+        ),
+        SizedBox(
+          width: 10.0,
+        ),
+      ],
     );
   }
 }
