@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class homePage extends StatefulWidget {
@@ -61,72 +63,82 @@ class _homePageState extends State<homePage> {
                   Stack(
                     alignment: AlignmentDirectional.bottomCenter,
                     children: [
-                      Container(
-                        height: 46,
-                        width: 340,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8.0),
-                          gradient: LinearGradient(
-                            colors: [
-                              Color.fromRGBO(255, 255, 255, .5),
-                              Color.fromRGBO(255, 255, 255, .2),
-                            ],
-                            begin: Alignment.centerLeft,
-                            end: Alignment.centerRight,
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: BackdropFilter(
+                          filter: ImageFilter.blur(
+                            sigmaX: 10.0,
+                            sigmaY: 10.0,
                           ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 20.0,
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
+                          child: Container(
+                            height: 46,
+                            width: 340,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8.0),
+                              gradient: LinearGradient(
+                                colors: [
+                                  Color.fromRGBO(255, 255, 255, .5),
+                                  Color.fromRGBO(255, 255, 255, .2),
+                                ],
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 20.0,
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
+                                  Row(
+                                    children: [
+                                      Image(
+                                        image: AssetImage(
+                                            'assets/Images/icon_hart.png'),
+                                      ),
+                                      SizedBox(
+                                        width: 5.0,
+                                      ),
+                                      Text(
+                                        '1.3K',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontFamily: 'GM',
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      Image(
+                                        image: AssetImage(
+                                            'assets/Images/icon_comments.png'),
+                                      ),
+                                      SizedBox(
+                                        width: 5.0,
+                                      ),
+                                      Text(
+                                        '666',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontFamily: 'GM',
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                   Image(
                                     image: AssetImage(
-                                        'assets/Images/icon_hart.png'),
+                                        'assets/Images/icon_share.png'),
                                   ),
-                                  SizedBox(
-                                    width: 5.0,
-                                  ),
-                                  Text(
-                                    '1.3K',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: 'GM',
-                                    ),
+                                  Image(
+                                    image: AssetImage(
+                                        'assets/Images/icon_save.png'),
                                   ),
                                 ],
                               ),
-                              Row(
-                                children: [
-                                  Image(
-                                    image: AssetImage(
-                                        'assets/Images/icon_comments.png'),
-                                  ),
-                                  SizedBox(
-                                    width: 5.0,
-                                  ),
-                                  Text(
-                                    '666',
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontFamily: 'GM',
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Image(
-                                image:
-                                    AssetImage('assets/Images/icon_share.png'),
-                              ),
-                              Image(
-                                image:
-                                    AssetImage('assets/Images/icon_save.png'),
-                              ),
-                            ],
+                            ),
                           ),
                         ),
                       ),
