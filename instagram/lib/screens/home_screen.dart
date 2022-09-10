@@ -40,14 +40,36 @@ class _homePageState extends State<homePage> {
         elevation: 0,
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            _getPost(),
-          ],
+        child: Container(
+          height: 85,
+          child: ListView.builder(
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            itemCount: 10,
+            itemBuilder: ((context, index) {
+              return index == 0 ? _getAddStory() : _getStoryBox();
+            }),
+          ),
         ),
       ),
     );
   }
+}
+
+Widget _getPostList() {
+  return ListView.builder(
+    itemCount: 5,
+    itemBuilder: ((context, index) {
+      return Column(
+        children: [
+          SizedBox(
+            height: 24.0,
+          ),
+          _getPost(),
+        ],
+      );
+    }),
+  );
 }
 
 class _getPost extends StatelessWidget {
@@ -351,4 +373,44 @@ class _getStoryBox extends StatelessWidget {
       ],
     );
   }
+}
+
+Widget _getAddStory() {
+  return Row(
+    children: [
+      // story 1
+      Padding(
+        padding: EdgeInsets.only(left: 27.0, top: 20.0),
+        child: Container(
+          width: 64,
+          height: 64,
+          decoration: BoxDecoration(
+            color: Color(0xffF35383),
+            borderRadius: BorderRadius.circular(40),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(3.0),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Color(0xff1C1F2E),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: CircleAvatar(
+                  backgroundColor: Colors.transparent,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(30.0),
+                    child: Image(
+                      image: AssetImage('assets/Images/icon_plus.png'),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    ],
+  );
 }
