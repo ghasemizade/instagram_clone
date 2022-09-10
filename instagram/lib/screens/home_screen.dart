@@ -45,11 +45,16 @@ class _homePageState extends State<homePage> {
         elevation: 0,
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            _getStorypack(),
-            // _getPost(),
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 120.0,
+                child: _getStorypack(),
+              ),
+              _getPostList(),
+            ],
+          ),
         ),
       ),
     );
@@ -60,7 +65,8 @@ Widget _getStorypack() {
   return Container(
     height: 110,
     child: ListView.builder(
-      shrinkWrap: true,
+      // physics: NeverScrollableScrollPhysics(),
+      // shrinkWrap: true,
       scrollDirection: Axis.horizontal,
       itemCount: 10,
       itemBuilder: ((context, index) {
@@ -72,7 +78,9 @@ Widget _getStorypack() {
 
 Widget _getPostList() {
   return ListView.builder(
-    //itemCount: 5,
+    physics: NeverScrollableScrollPhysics(),
+    shrinkWrap: true,
+    itemCount: 10,
     itemBuilder: ((context, index) {
       return _getPost();
     }),
