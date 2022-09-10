@@ -32,8 +32,13 @@ class _homePageState extends State<homePage> {
             ),
             height: 24,
             width: 24,
-            child: Icon(
-              Icons.all_inbox_rounded,
+            child: IconButton(
+              icon: Icon(
+                Icons.all_inbox_rounded,
+              ),
+              onPressed: () {
+                print("tap me");
+              },
             ),
           ),
         ],
@@ -43,7 +48,7 @@ class _homePageState extends State<homePage> {
         child: Column(
           children: [
             _getStorypack(),
-            _getPost(),
+            // _getPost(),
           ],
         ),
       ),
@@ -53,7 +58,7 @@ class _homePageState extends State<homePage> {
 
 Widget _getStorypack() {
   return Container(
-    height: 85,
+    height: 110,
     child: ListView.builder(
       shrinkWrap: true,
       scrollDirection: Axis.horizontal,
@@ -242,12 +247,11 @@ class _getStoryBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        // story 1
-        Padding(
-          padding: EdgeInsets.only(left: 27.0, top: 20.0),
-          child: Container(
+    return Padding(
+      padding: EdgeInsets.only(left: 27.0, top: 20.0),
+      child: Column(
+        children: [
+          Container(
             width: 64,
             height: 64,
             decoration: BoxDecoration(
@@ -275,114 +279,27 @@ class _getStoryBox extends StatelessWidget {
               ),
             ),
           ),
-        ),
-        // story 2
-        // Padding(
-        //   padding: EdgeInsets.only(left: 27.0, top: 20.0),
-        //   child: Container(
-        //     width: 64,
-        //     height: 64,
-        //     decoration: BoxDecoration(
-        //       color: Color(0xffF35383),
-        //       borderRadius: BorderRadius.circular(40),
-        //     ),
-        //     child: Padding(
-        //       padding: const EdgeInsets.all(3.0),
-        //       child: Container(
-        //         decoration: BoxDecoration(
-        //           color: Color(0xff1C1F2E),
-        //           borderRadius: BorderRadius.circular(30),
-        //         ),
-        //         child: Padding(
-        //           padding: const EdgeInsets.all(4.0),
-        //           child: CircleAvatar(
-        //             child: ClipRRect(
-        //               borderRadius: BorderRadius.circular(30.0),
-        //               child: Image(
-        //                 image: AssetImage('assets/Images/user_1.png'),
-        //               ),
-        //             ),
-        //           ),
-        //         ),
-        //       ),
-        //     ),
-        //   ),
-        // ),
-        // // story 3
-        // Padding(
-        //   padding: EdgeInsets.only(left: 27.0, top: 20.0),
-        //   child: Container(
-        //     width: 64,
-        //     height: 64,
-        //     decoration: BoxDecoration(
-        //       color: Color(0xffF35383),
-        //       borderRadius: BorderRadius.circular(40),
-        //     ),
-        //     child: Padding(
-        //       padding: const EdgeInsets.all(3.0),
-        //       child: Container(
-        //         decoration: BoxDecoration(
-        //           color: Color(0xff1C1F2E),
-        //           borderRadius: BorderRadius.circular(30),
-        //         ),
-        //         child: Padding(
-        //           padding: const EdgeInsets.all(4.0),
-        //           child: CircleAvatar(
-        //             child: ClipRRect(
-        //               borderRadius: BorderRadius.circular(30.0),
-        //               child: Image(
-        //                 image: AssetImage('assets/Images/user_2.png'),
-        //               ),
-        //             ),
-        //           ),
-        //         ),
-        //       ),
-        //     ),
-        //   ),
-        // ),
-        // // story 4
-        // Padding(
-        //   padding: EdgeInsets.only(left: 27.0, top: 20.0),
-        //   child: Container(
-        //     width: 64,
-        //     height: 64,
-        //     decoration: BoxDecoration(
-        //       color: Color(0xffF35383),
-        //       borderRadius: BorderRadius.circular(40),
-        //     ),
-        //     child: Padding(
-        //       padding: const EdgeInsets.all(3.0),
-        //       child: Container(
-        //         decoration: BoxDecoration(
-        //           color: Color(0xff1C1F2E),
-        //           borderRadius: BorderRadius.circular(30),
-        //         ),
-        //         child: Padding(
-        //           padding: const EdgeInsets.all(4.0),
-        //           child: CircleAvatar(
-        //             child: ClipRRect(
-        //               borderRadius: BorderRadius.circular(30.0),
-        //               child: Image(
-        //                 image: AssetImage('assets/Images/user_4.png'),
-        //               ),
-        //             ),
-        //           ),
-        //         ),
-        //       ),
-        //     ),
-        //   ),
-        // ),
-      ],
+          SizedBox(
+            height: 10.0,
+          ),
+          Text(
+            'Hosein',
+            style: TextStyle(color: Colors.white, fontSize: 13),
+          ),
+        ],
+      ),
     );
   }
 }
 
 Widget _getAddStory() {
-  return Row(
+  return Column(
     children: [
-      // story 1
       Padding(
-        padding: EdgeInsets.only(left: 27.0, top: 20.0),
+        padding: EdgeInsets.only(
+          left: 27.0,
+          top: 20.0,
+        ),
         child: Container(
           width: 64,
           height: 64,
@@ -411,6 +328,16 @@ Widget _getAddStory() {
               ),
             ),
           ),
+        ),
+      ),
+      SizedBox(
+        height: 10.0,
+      ),
+      Padding(
+        padding: const EdgeInsets.only(left: 20),
+        child: Text(
+          'Add Story',
+          style: TextStyle(color: Colors.white, fontSize: 13),
         ),
       ),
     ],

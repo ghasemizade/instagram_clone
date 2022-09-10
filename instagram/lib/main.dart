@@ -12,6 +12,7 @@ class Application extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        fontFamily: 'GM',
         textTheme: TextTheme(
           headline4: TextStyle(
             fontFamily: 'GB',
