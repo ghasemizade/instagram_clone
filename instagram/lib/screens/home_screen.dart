@@ -40,34 +40,36 @@ class _homePageState extends State<homePage> {
         elevation: 0,
       ),
       body: SafeArea(
-        child: Container(
-          height: 85,
-          child: ListView.builder(
-            shrinkWrap: true,
-            scrollDirection: Axis.horizontal,
-            itemCount: 10,
-            itemBuilder: ((context, index) {
-              return index == 0 ? _getAddStory() : _getStoryBox();
-            }),
-          ),
+        child: Column(
+          children: [
+            _getStorypack(),
+            _getPost(),
+          ],
         ),
       ),
     );
   }
 }
 
+Widget _getStorypack() {
+  return Container(
+    height: 85,
+    child: ListView.builder(
+      shrinkWrap: true,
+      scrollDirection: Axis.horizontal,
+      itemCount: 10,
+      itemBuilder: ((context, index) {
+        return index == 0 ? _getAddStory() : _getStoryBox();
+      }),
+    ),
+  );
+}
+
 Widget _getPostList() {
   return ListView.builder(
-    itemCount: 5,
+    //itemCount: 5,
     itemBuilder: ((context, index) {
-      return Column(
-        children: [
-          SizedBox(
-            height: 24.0,
-          ),
-          _getPost(),
-        ],
-      );
+      return _getPost();
     }),
   );
 }
@@ -149,12 +151,12 @@ class _getPost extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8.0),
                     child: BackdropFilter(
                       filter: ImageFilter.blur(
-                        sigmaX: 15.0,
-                        sigmaY: 15.0,
+                        sigmaX: 20.0,
+                        sigmaY: 20.0,
                       ),
                       child: Container(
                         height: 46,
-                        width: 340,
+                        width: 375,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8.0),
                           gradient: LinearGradient(
