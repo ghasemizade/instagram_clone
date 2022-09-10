@@ -48,6 +48,62 @@ class _homePageState extends State<homePage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              ElevatedButton(
+                onPressed: () {
+                  showModalBottomSheet(
+                    barrierColor: Colors.transparent,
+                    backgroundColor: Colors.transparent,
+                    context: context,
+                    builder: (BuildContext context) {
+                      return ClipRRect(
+                        borderRadius: BorderRadius.circular(36.0),
+                        child: BackdropFilter(
+                          filter: ImageFilter.blur(
+                            sigmaX: 20.0,
+                            sigmaY: 20.0,
+                          ),
+                          child: Container(
+                            height: 400,
+                            padding: EdgeInsets.symmetric(horizontal: 20.0),
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [
+                                  Color.fromRGBO(255, 255, 255, .5),
+                                  Color.fromRGBO(255, 255, 255, .2),
+                                ],
+                              ),
+                            ),
+                            child: GridView.builder(
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisSpacing: 20,
+                                mainAxisSpacing: 20,
+                                crossAxisCount: 4,
+                              ),
+                              itemBuilder: ((context, index) {
+                                return GestureDetector(
+                                  onTap: () {
+                                    print('on tap me');
+                                  },
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      border: Border.all(color: Colors.blue),
+                                      borderRadius: BorderRadius.circular(20.0),
+                                    ),
+                                  ),
+                                );
+                              }),
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                },
+                child: Text('open buttomSheet'),
+              ),
               SizedBox(
                 height: 120.0,
                 child: _getStorypack(),
