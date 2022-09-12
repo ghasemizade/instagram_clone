@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:instagram/screens/shareBottomSheet.dart';
 
 class homePage extends StatefulWidget {
   homePage({Key? key}) : super(key: key);
@@ -58,50 +59,17 @@ class _homePageState extends State<homePage> {
                     barrierColor: Colors.transparent,
                     backgroundColor: Colors.transparent,
                     context: context,
+                    isScrollControlled: true,
                     builder: (BuildContext context) {
-                      return ClipRRect(
-                        borderRadius: BorderRadius.circular(36.0),
-                        child: BackdropFilter(
-                          filter: ImageFilter.blur(
-                            sigmaX: 20.0,
-                            sigmaY: 20.0,
-                          ),
-                          child: Container(
-                            height: 400,
-                            padding: EdgeInsets.symmetric(horizontal: 20.0),
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                colors: [
-                                  Color.fromRGBO(28, 31, 46, .3),
-                                  Color.fromRGBO(28, 31, 46, .3),
-                                ],
-                              ),
-                            ),
-                            child: GridView.builder(
-                              gridDelegate:
-                                  SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisSpacing: 20,
-                                mainAxisSpacing: 20,
-                                crossAxisCount: 4,
-                              ),
-                              itemBuilder: ((context, index) {
-                                return GestureDetector(
-                                  onTap: () {
-                                    print('on tap me');
-                                  },
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      border: Border.all(color: Colors.blue),
-                                      borderRadius: BorderRadius.circular(20.0),
-                                    ),
-                                  ),
-                                );
-                              }),
-                            ),
-                          ),
-                        ),
+                      return DraggableScrollableSheet(
+                        initialChildSize: .35,
+                        minChildSize: .25,
+                        maxChildSize: .75,
+                        builder: ((context, controller) {
+                          return shareButtomSheet(
+                            controller: controller,
+                          );
+                        }),
                       );
                     },
                   );
