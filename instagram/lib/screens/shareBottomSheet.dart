@@ -31,23 +31,13 @@ class shareButtomSheet extends StatelessWidget {
               ],
             ),
           ),
-          child: _getContent(controller: controller),
+          child: _getContent(),
         ),
       ),
     );
   }
-}
 
-class _getContent extends StatelessWidget {
-  const _getContent({
-    Key? key,
-    required this.controller,
-  }) : super(key: key);
-
-  final ScrollController? controller;
-
-  @override
-  Widget build(BuildContext context) {
+  Widget _getContent() {
     return GridView.builder(
       controller: controller,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

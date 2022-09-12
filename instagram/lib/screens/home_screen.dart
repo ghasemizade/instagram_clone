@@ -53,16 +53,44 @@ class _homePageState extends State<homePage> {
         child: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
+              child: ElevatedButton(
+                onPressed: () {
+                  showModalBottomSheet(
+                    barrierColor: Colors.transparent,
+                    backgroundColor: Colors.transparent,
+                    context: context,
+                    isScrollControlled: true,
+                    builder: (BuildContext context) {
+                      return DraggableScrollableSheet(
+                        initialChildSize: .35,
+                        minChildSize: .25,
+                        maxChildSize: .75,
+                        builder: ((context, controller) {
+                          return shareButtomSheet(
+                            controller: controller,
+                          );
+                        }),
+                      );
+                    },
+                  );
+                },
+                child: Text('open buttomSheet'),
+              ),
+            ),
+            SliverToBoxAdapter(
               child: _getStorypack(),
             ),
             SliverList(
-              delegate: SliverChildBuilderDelegate((context, index) {
-                return Column(
-                  children: [
-                    _getPostList(),
-                  ],
-                );
-              }),
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  return Column(
+                    children: [
+                      _getPostList(),
+                    ],
+                  );
+                },
+                childCount: 5,
+              ),
             ),
           ],
         ),
