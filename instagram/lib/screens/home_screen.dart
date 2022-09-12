@@ -50,44 +50,55 @@ class _homePageState extends State<homePage> {
         elevation: 0,
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  showModalBottomSheet(
-                    barrierColor: Colors.transparent,
-                    backgroundColor: Colors.transparent,
-                    context: context,
-                    isScrollControlled: true,
-                    builder: (BuildContext context) {
-                      return DraggableScrollableSheet(
-                        initialChildSize: .35,
-                        minChildSize: .25,
-                        maxChildSize: .75,
-                        builder: ((context, controller) {
-                          return shareButtomSheet(
-                            controller: controller,
-                          );
-                        }),
-                      );
-                    },
-                  );
-                },
-                child: Text('open buttomSheet'),
-              ),
-              SizedBox(
-                height: 120.0,
-                child: _getStorypack(),
-              ),
-              _getPostList(),
-            ],
-          ),
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: _getStorypack(),
+            ),
+            SliverList(
+              delegate: SliverChildBuilderDelegate((context, index) {
+                return Column(
+                  children: [
+                    _getPostList(),
+                  ],
+                );
+              }),
+            ),
+          ],
         ),
       ),
     );
   }
 }
+
+// ElevatedButton(
+//                 onPressed: () {
+//                   showModalBottomSheet(
+//                     barrierColor: Colors.transparent,
+//                     backgroundColor: Colors.transparent,
+//                     context: context,
+//                     isScrollControlled: true,
+//                     builder: (BuildContext context) {
+//                       return DraggableScrollableSheet(
+//                         initialChildSize: .35,
+//                         minChildSize: .25,
+//                         maxChildSize: .75,
+//                         builder: ((context, controller) {
+//                           return shareButtomSheet(
+//                             controller: controller,
+//                           );
+//                         }),
+//                       );
+//                     },
+//                   );
+//                 },
+//                 child: Text('open buttomSheet'),
+//               ),
+//               SizedBox(
+//                 height: 120.0,
+//                 child: _getStorypack(),
+//               ),
+//               _getPostList(),
 
 Widget _getStorypack() {
   return Container(
