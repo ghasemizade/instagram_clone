@@ -29,8 +29,10 @@ class _loginPageState extends State<loginPage> {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Color(0xff4E3CC9),
-            Color(0xffF35383),
+            // Color(0xff1C1F2E),
+            // Color(0xff1C1F2E),
+            Colors.white,
+            Colors.white
           ],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
@@ -57,11 +59,9 @@ class _loginPageState extends State<loginPage> {
       top: 40,
       child: Column(
         children: [
-          Expanded(
-            child: Image(
-              image: AssetImage('assets/Images/rocket.png'),
-              fit: BoxFit.contain,
-            ),
+          Image(
+            image: AssetImage('assets/Images/welcome_image.png'),
+            fit: BoxFit.cover,
           ),
           Expanded(
             child: Container(),
@@ -81,8 +81,8 @@ class _loginPageState extends State<loginPage> {
           child: ClipRRect(
             child: BackdropFilter(
               filter: ImageFilter.blur(
-                sigmaX: 30.0,
-                sigmaY: 30.0,
+                sigmaX: 20.0,
+                sigmaY: 20.0,
               ),
               child: Container(
                 decoration: BoxDecoration(
@@ -92,14 +92,14 @@ class _loginPageState extends State<loginPage> {
                     topLeft: Radius.circular(30),
                     topRight: Radius.circular(30),
                   ),
-                  // gradient: LinearGradient(
-                  //   colors: [
-                  //     Color.fromRGBO(106, 108, 117, .4),
-                  //     Color.fromRGBO(106, 108, 117, .3),
-                  //   ],
-                  //   begin: Alignment.topCenter,
-                  //   end: Alignment.bottomCenter,
-                  // ),
+                  gradient: LinearGradient(
+                    colors: [
+                      Color.fromRGBO(0, 0, 0, .3),
+                      Color.fromRGBO(0, 0, 0, .2),
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                  ),
                 ),
                 child: SingleChildScrollView(
                   child: Column(
