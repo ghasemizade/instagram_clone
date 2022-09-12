@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/screens/home_screen.dart';
+import 'package:instagram/screens/login_page.dart';
+import 'package:instagram/screens/switch_acount.dart';
 
 void main() {
   runApp(Application());
@@ -32,7 +34,7 @@ class Application extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: homePage(),
+      home: loginPage(),
     );
   }
 }
@@ -46,10 +48,8 @@ class splashScreen extends StatelessWidget {
       backgroundColor: Color(0xff1C1F2E),
       body: Container(
         decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('assets/Images/pattern1.png'),
-              repeat: ImageRepeat.repeat),
-        ),
+            // color: Color(0xff1C1F2E),
+            color: Colors.white),
         child: Stack(
           alignment: AlignmentDirectional.bottomCenter,
           children: [
@@ -57,8 +57,16 @@ class splashScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 80.0),
               child: Center(
                 child: Image(
-                  image: AssetImage('assets/Images/logo_splash.png'),
+                  image: AssetImage('assets/Images/loader1.gif'),
                 ),
+              ),
+            ),
+            Positioned(
+              bottom: 220.0,
+              child: Image(
+                image: AssetImage('assets/Images/moodinger_logo.png'),
+                width: 150,
+                color: Color(0xff1C1F2E),
               ),
             ),
             Positioned(

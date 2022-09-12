@@ -8,7 +8,8 @@ class switchAccountScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff1C1F2E),
+      // backgroundColor: Color(0xff1C1F2E),
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           children: [
@@ -42,8 +43,8 @@ class switchAccountScreen extends StatelessWidget {
                               begin: Alignment.topLeft,
                               end: Alignment.bottomRight,
                               colors: [
-                                Color.fromRGBO(255, 255, 255, .5),
-                                Color.fromRGBO(255, 255, 255, .2),
+                                Color.fromRGBO(0, 0, 0, .4),
+                                Color.fromRGBO(0, 0, 0, .3),
                               ],
                             ),
                             borderRadius: BorderRadius.all(
@@ -101,7 +102,7 @@ class switchAccountScreen extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(
                 top: 10,
-                bottom: 60,
+                bottom: 15,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -109,7 +110,7 @@ class switchAccountScreen extends StatelessWidget {
                   Text(
                     'don\'t have an account? / ',
                     style: TextStyle(
-                      color: Colors.grey,
+                      color: Colors.grey[800],
                       fontSize: 15.0,
                       fontFamily: 'GR',
                     ),
@@ -117,7 +118,7 @@ class switchAccountScreen extends StatelessWidget {
                   Text(
                     'Sign Up',
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Color(0xff1C1F2E),
                       fontFamily: 'GB',
                       fontSize: 16,
                     ),

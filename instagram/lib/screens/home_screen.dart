@@ -121,8 +121,6 @@ Widget _getStorypack() {
   return Container(
     height: 110,
     child: ListView.builder(
-      // physics: NeverScrollableScrollPhysics(),
-      // shrinkWrap: true,
       scrollDirection: Axis.horizontal,
       itemCount: 10,
       itemBuilder: ((context, index) {

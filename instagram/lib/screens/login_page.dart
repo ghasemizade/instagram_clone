@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class loginPage extends StatefulWidget {
@@ -58,6 +60,7 @@ class _loginPageState extends State<loginPage> {
           Expanded(
             child: Image(
               image: AssetImage('assets/Images/rocket.png'),
+              fit: BoxFit.contain,
             ),
           ),
           Expanded(
@@ -75,158 +78,185 @@ class _loginPageState extends State<loginPage> {
           child: Container(),
         ),
         Expanded(
-          child: Container(
-            decoration: BoxDecoration(
-              color: Color(0xff1C1F2E),
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(15),
-                topRight: Radius.circular(15),
+          child: ClipRRect(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(
+                sigmaX: 30.0,
+                sigmaY: 30.0,
               ),
-            ),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  SizedBox(
-                    width: double.infinity,
+              child: Container(
+                decoration: BoxDecoration(
+                  // color: Color(0xff1C1F2E),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(30),
+                    topRight: Radius.circular(30),
                   ),
-                  SizedBox(
-                    height: 30.0,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  // gradient: LinearGradient(
+                  //   colors: [
+                  //     Color.fromRGBO(106, 108, 117, .4),
+                  //     Color.fromRGBO(106, 108, 117, .3),
+                  //   ],
+                  //   begin: Alignment.topCenter,
+                  //   end: Alignment.bottomCenter,
+                  // ),
+                ),
+                child: SingleChildScrollView(
+                  child: Column(
                     children: [
-                      Text(
-                        'Sign in to ',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18.0,
+                      SizedBox(
+                        width: double.infinity,
+                      ),
+                      SizedBox(
+                        height: 30.0,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Sign in to ',
+                            style: TextStyle(
+                              color: Color(0xff1C1F2E),
+                              fontSize: 18.0,
+                              fontFamily: 'GB',
+                            ),
+                          ),
+                          // Image(
+                          //   image: AssetImage('assets/Images/mood.png'),
+                          //   color: Color(0xff1C1F2E),
+                          // ),
+                          Text(
+                            'Moodinger',
+                            style: TextStyle(
+                              color: Color(0xff1C1F2E),
+                              fontSize: 18.0,
+                              fontFamily: 'GB',
+                            ),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 44.0,
+                        ),
+                        child: SizedBox(
+                          height: 45.0,
+                          child: TextField(
+                            focusNode: wicher0,
+                            decoration: InputDecoration(
+                              labelText: '  Email',
+                              labelStyle: TextStyle(
+                                fontFamily: 'GM',
+                                fontSize: 18,
+                                color: wicher0.hasFocus
+                                    ? Color(0xffF35383)
+                                    : Color(0xff1C1F2E),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(15),
+                                ),
+                                borderSide: BorderSide(
+                                  color: Color(0xff1C1F2E),
+                                  width: 3.0,
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 3.0,
+                                  color: Color(0xffF35383),
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(15),
+                                ),
+                              ),
+                            ),
+                          ),
                         ),
                       ),
-                      Image(
-                        image: AssetImage('assets/Images/mood.png'),
+                      SizedBox(
+                        height: 32,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 44.0,
+                        ),
+                        child: SizedBox(
+                          height: 45.0,
+                          child: TextField(
+                            focusNode: wicher1,
+                            decoration: InputDecoration(
+                              labelText: '  Password ',
+                              labelStyle: TextStyle(
+                                fontFamily: 'GM',
+                                fontSize: 18,
+                                color: wicher1.hasFocus
+                                    ? Color(0xffF35383)
+                                    : Color(0xff1C1F2E),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(15),
+                                ),
+                                borderSide: BorderSide(
+                                  color: Color(0xff1C1F2E),
+                                  width: 3.0,
+                                ),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  width: 3.0,
+                                  color: Color(0xffF35383),
+                                ),
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(15),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 30.0,
+                      ),
+                      SizedBox(
+                        height: 45,
+                        width: 130,
+                        child: ElevatedButton(
+                          style: Theme.of(context).elevatedButtonTheme.style,
+                          onPressed: () {},
+                          child: Text('sign in'),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 30.0,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Don\'t have an account? /',
+                            style: TextStyle(
+                              fontFamily: 'GM',
+                              color: Colors.grey[800],
+                            ),
+                          ),
+                          Text(
+                            ' Sign Up',
+                            style: TextStyle(
+                              fontFamily: 'GB',
+                              color: Color(0xff1C1F2E),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 44.0,
-                    ),
-                    child: SizedBox(
-                      height: 45.0,
-                      child: TextField(
-                        focusNode: wicher0,
-                        decoration: InputDecoration(
-                          labelText: '  Email',
-                          labelStyle: TextStyle(
-                            fontFamily: 'GM',
-                            fontSize: 18,
-                            color: wicher0.hasFocus
-                                ? Color(0xffF35383)
-                                : Colors.grey,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(15),
-                            ),
-                            borderSide: BorderSide(
-                              color: Color(0xffC5C5C5),
-                              width: 3.0,
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 3.0,
-                              color: Color(0xffF35383),
-                            ),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(15),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 32,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 44.0,
-                    ),
-                    child: SizedBox(
-                      height: 45.0,
-                      child: TextField(
-                        focusNode: wicher1,
-                        decoration: InputDecoration(
-                          labelText: '  Password ',
-                          labelStyle: TextStyle(
-                            fontFamily: 'GM',
-                            fontSize: 18,
-                            color: wicher1.hasFocus
-                                ? Color(0xffF35383)
-                                : Colors.grey,
-                          ),
-                          enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(15),
-                            ),
-                            borderSide: BorderSide(
-                              color: Color(0xffC5C5C5),
-                              width: 3.0,
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 3.0,
-                              color: Color(0xffF35383),
-                            ),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(15),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 30.0,
-                  ),
-                  SizedBox(
-                    height: 45,
-                    width: 130,
-                    child: ElevatedButton(
-                      style: Theme.of(context).elevatedButtonTheme.style,
-                      onPressed: () {},
-                      child: Text('sign in'),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 30.0,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'Don\'t have an account? /',
-                        style: TextStyle(
-                          fontFamily: 'GM',
-                          color: Colors.grey,
-                        ),
-                      ),
-                      Text(
-                        ' Sign Up',
-                        style: TextStyle(
-                          fontFamily: 'GM',
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
+                ),
               ),
             ),
           ),
