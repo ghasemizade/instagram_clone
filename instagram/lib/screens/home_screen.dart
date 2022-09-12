@@ -13,15 +13,18 @@ class _homePageState extends State<homePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff1C1F2E),
+      // backgroundColor: Color(0xff1C1F2E),
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color(0xff1C1F2E),
+        // backgroundColor: Color(0xff1C1F2E),
+        backgroundColor: Colors.white,
         title: Row(
           children: [
             Image(
               image: AssetImage('assets/Images/moodinger_logo.png'),
               height: 20,
               width: 140,
+              color: Color(0xff1C1F2E),
             ),
           ],
         ),
@@ -35,6 +38,7 @@ class _homePageState extends State<homePage> {
             child: IconButton(
               icon: Icon(
                 Icons.all_inbox_rounded,
+                color: Color(0xff1C1F2E),
               ),
               onPressed: () {
                 print("tap me");
@@ -70,8 +74,8 @@ class _homePageState extends State<homePage> {
                                 begin: Alignment.topCenter,
                                 end: Alignment.bottomCenter,
                                 colors: [
-                                  Color.fromRGBO(255, 255, 255, .5),
-                                  Color.fromRGBO(255, 255, 255, .2),
+                                  Color.fromRGBO(28, 31, 46, .3),
+                                  Color.fromRGBO(28, 31, 46, .3),
                                 ],
                               ),
                             ),
@@ -167,7 +171,7 @@ class _getPost extends StatelessWidget {
                   'HoseinGhasemizade',
                   style: TextStyle(
                     fontFamily: 'GB',
-                    color: Colors.white,
+                    color: Color(0xff1C1F2E),
                     fontSize: 16.0,
                   ),
                 ),
@@ -178,7 +182,7 @@ class _getPost extends StatelessWidget {
                   'frontend developer',
                   style: TextStyle(
                     fontFamily: 'GB',
-                    color: Colors.white,
+                    color: Color(0xff1C1F2E),
                     fontSize: 14.0,
                   ),
                 ),
@@ -187,7 +191,7 @@ class _getPost extends StatelessWidget {
             Spacer(),
             Icon(
               Icons.more_vert,
-              color: Colors.white,
+              color: Color(0xff1C1F2E),
             ),
             SizedBox(
               width: 10.0,
@@ -228,8 +232,8 @@ class _getPost extends StatelessWidget {
                           borderRadius: BorderRadius.circular(8.0),
                           gradient: LinearGradient(
                             colors: [
-                              Color.fromRGBO(255, 255, 255, .5),
-                              Color.fromRGBO(255, 255, 255, .2),
+                              Color.fromRGBO(28, 31, 46, .5),
+                              Color.fromRGBO(28, 31, 46, .5),
                             ],
                             begin: Alignment.centerLeft,
                             end: Alignment.centerRight,
@@ -254,7 +258,7 @@ class _getPost extends StatelessWidget {
                                   Text(
                                     '1.3K',
                                     style: TextStyle(
-                                      color: Colors.white,
+                                      color: Color(0xff1C1F2E),
                                       fontFamily: 'GB',
                                     ),
                                   ),
@@ -272,7 +276,7 @@ class _getPost extends StatelessWidget {
                                   Text(
                                     '666',
                                     style: TextStyle(
-                                      color: Colors.white,
+                                      color: Color(0xff1C1F2E),
                                       fontFamily: 'GB',
                                     ),
                                   ),
@@ -321,14 +325,15 @@ class _getStoryBox extends StatelessWidget {
               borderRadius: BorderRadius.circular(40),
             ),
             child: Padding(
-              padding: const EdgeInsets.all(3.0),
+              padding: const EdgeInsets.all(2.5),
               child: Container(
                 decoration: BoxDecoration(
-                  color: Color(0xff1C1F2E),
+                  // color: Color(0xff1C1F2E),
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(30),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(4.0),
+                  padding: const EdgeInsets.all(2.0),
                   child: CircleAvatar(
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(30.0),
@@ -346,7 +351,7 @@ class _getStoryBox extends StatelessWidget {
           ),
           Text(
             'Hosein',
-            style: TextStyle(color: Colors.white, fontSize: 13),
+            style: TextStyle(color: Color(0xff1C1F2E), fontSize: 13),
           ),
         ],
       ),
@@ -370,10 +375,10 @@ Widget _getAddStory() {
             borderRadius: BorderRadius.circular(40),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(3.0),
+            padding: const EdgeInsets.all(2.5),
             child: Container(
               decoration: BoxDecoration(
-                color: Color(0xff1C1F2E),
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Padding(
@@ -399,7 +404,7 @@ Widget _getAddStory() {
         padding: const EdgeInsets.only(left: 20),
         child: Text(
           'Add Story',
-          style: TextStyle(color: Colors.white, fontSize: 13),
+          style: TextStyle(color: Color(0xff1C1F2E), fontSize: 13),
         ),
       ),
     ],

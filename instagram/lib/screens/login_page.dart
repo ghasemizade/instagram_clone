@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:instagram/screens/home_screen.dart';
 
 class loginPage extends StatefulWidget {
   const loginPage({Key? key}) : super(key: key);
@@ -228,7 +229,16 @@ class _loginPageState extends State<loginPage> {
                         width: 130,
                         child: ElevatedButton(
                           style: Theme.of(context).elevatedButtonTheme.style,
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return homePage();
+                                },
+                              ),
+                            );
+                          },
                           child: Text('sign in'),
                         ),
                       ),

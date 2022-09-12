@@ -34,13 +34,24 @@ class Application extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: loginPage(),
+      home: splashScreen(),
     );
   }
 }
 
-class splashScreen extends StatelessWidget {
+class splashScreen extends StatefulWidget {
   const splashScreen({Key? key}) : super(key: key);
+
+  @override
+  State<splashScreen> createState() => _splashScreenState();
+}
+
+class _splashScreenState extends State<splashScreen> {
+  @override
+  void initState() {
+    navigateToLoginScreen(context);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +59,13 @@ class splashScreen extends StatelessWidget {
       backgroundColor: Color(0xff1C1F2E),
       body: Container(
         decoration: BoxDecoration(
-            // color: Color(0xff1C1F2E),
-            color: Colors.white),
+          // color: Color(0xff1C1F2E),
+          color: Colors.white,
+          image: DecorationImage(
+            repeat: ImageRepeat.repeat,
+            image: AssetImage('assets/Images/pattern1.png'),
+          ),
+        ),
         child: Stack(
           alignment: AlignmentDirectional.bottomCenter,
           children: [
@@ -86,7 +102,7 @@ class splashScreen extends StatelessWidget {
                   Text(
                     'FALCON',
                     style: TextStyle(
-                      color: Colors.blue,
+                      color: Color(0xff1C1F2E),
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -98,4 +114,16 @@ class splashScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+Future navigateToLoginScreen(context) async {
+  await Future.delayed(
+    Duration(milliseconds: 3500),
+  );
+  Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(builder: (context) {
+      return loginPage();
+    }),
+  );
 }
