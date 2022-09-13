@@ -16,8 +16,8 @@ class shareButtomSheet extends StatelessWidget {
       ),
       child: BackdropFilter(
         filter: ImageFilter.blur(
-          sigmaX: 20.0,
-          sigmaY: 20.0,
+          sigmaX: 25.0,
+          sigmaY: 25.0,
         ),
         child: Container(
           height: 400,
