@@ -281,7 +281,10 @@ class _getPost extends StatelessWidget {
                                   //   image: AssetImage(
                                   //       'assets/Images/icon_comments.png'),
                                   // ),
-                                  Icon(Icons.comment_bank),
+                                  Icon(
+                                    Icons.add_comment_rounded,
+                                    color: Colors.white,
+                                  ),
                                   SizedBox(
                                     width: 5.0,
                                   ),
@@ -294,14 +297,19 @@ class _getPost extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              Image(
-                                image:
-                                    AssetImage('assets/Images/icon_share.png'),
+                              // Image(
+                              //   image:
+                              //       AssetImage('assets/Images/icon_share.png'),
+                              // ),
+                              Icon(
+                                Icons.send_rounded,
+                                color: Colors.white,
                               ),
-                              Image(
-                                image:
-                                    AssetImage('assets/Images/icon_save.png'),
-                              ),
+                              // Image(
+                              //   image:
+                              //       AssetImage('assets/Images/icon_save.png'),
+                              // ),
+                              // Icon(Icons.)
                             ],
                           ),
                         ),
