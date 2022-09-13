@@ -255,9 +255,13 @@ class _getPost extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  Image(
-                                    image: AssetImage(
-                                        'assets/Images/icon_hart.png'),
+                                  // Image(
+                                  //   image: AssetImage(
+                                  //       'assets/Images/icon_hart.png'),
+                                  // ),
+                                  Icon(
+                                    Icons.favorite_border_outlined,
+                                    color: Colors.white,
                                   ),
                                   SizedBox(
                                     width: 5.0,
@@ -273,10 +277,11 @@ class _getPost extends StatelessWidget {
                               ),
                               Row(
                                 children: [
-                                  Image(
-                                    image: AssetImage(
-                                        'assets/Images/icon_comments.png'),
-                                  ),
+                                  // Image(
+                                  //   image: AssetImage(
+                                  //       'assets/Images/icon_comments.png'),
+                                  // ),
+                                  Icon(Icons.comment_bank),
                                   SizedBox(
                                     width: 5.0,
                                   ),
