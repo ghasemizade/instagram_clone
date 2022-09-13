@@ -302,14 +302,17 @@ class _getPost extends StatelessWidget {
                               //       AssetImage('assets/Images/icon_share.png'),
                               // ),
                               Icon(
-                                Icons.send_rounded,
+                                Icons.share,
                                 color: Colors.white,
                               ),
                               // Image(
                               //   image:
                               //       AssetImage('assets/Images/icon_save.png'),
                               // ),
-                              // Icon(Icons.)
+                              Icon(
+                                Icons.bookmark_border,
+                                color: Colors.white,
+                              )
                             ],
                           ),
                         ),
