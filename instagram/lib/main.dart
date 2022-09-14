@@ -34,7 +34,7 @@ class Application extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: splashScreen(),
+      home: switchAccountScreen(),
     );
   }
 }
