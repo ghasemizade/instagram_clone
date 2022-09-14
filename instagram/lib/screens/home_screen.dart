@@ -61,15 +61,20 @@ class _homePageState extends State<homePage> {
                     context: context,
                     isScrollControlled: true,
                     builder: (BuildContext context) {
-                      return DraggableScrollableSheet(
-                        initialChildSize: .35,
-                        minChildSize: .25,
-                        maxChildSize: .75,
-                        builder: ((context, controller) {
-                          return shareButtomSheet(
-                            controller: controller,
-                          );
-                        }),
+                      return Padding(
+                        padding: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).viewInsets.bottom,
+                        ),
+                        child: DraggableScrollableSheet(
+                          initialChildSize: .35,
+                          minChildSize: .25,
+                          maxChildSize: .75,
+                          builder: ((context, controller) {
+                            return shareButtomSheet(
+                              controller: controller,
+                            );
+                          }),
+                        ),
                       );
                     },
                   );
@@ -152,18 +157,57 @@ Widget _getPostList() {
   );
 }
 
-class _getPost extends StatelessWidget {
+class _getPost extends StatefulWidget {
   const _getPost({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<_getPost> createState() => _getPostState();
+}
+
+class _getPostState extends State<_getPost> {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Row(
           children: [
-            _getStoryBox(),
+            Padding(
+              padding: EdgeInsets.only(
+                left: 27,
+                top: 20,
+              ),
+              child: Container(
+                width: 64,
+                height: 64,
+                decoration: BoxDecoration(
+                  color: Color(0xffF35383),
+                  borderRadius: BorderRadius.circular(40),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(2.5),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      // color: Color(0xff1C1F2E),
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(2.0),
+                      child: CircleAvatar(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(30.0),
+                          child: Image(
+                            image: AssetImage('assets/Images/HoseinAvatar.jpg'),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
             SizedBox(
               width: 10.0,
             ),
@@ -196,9 +240,14 @@ class _getPost extends StatelessWidget {
               ],
             ),
             Spacer(),
-            Icon(
-              Icons.more_vert,
-              color: Color(0xff1C1F2E),
+            IconButton(
+              onPressed: () {
+                print('more');
+              },
+              icon: Icon(
+                Icons.more_vert,
+                color: Color(0xff1C1F2E),
+              ),
             ),
             SizedBox(
               width: 10.0,
@@ -259,12 +308,14 @@ class _getPost extends StatelessWidget {
                                   //   image: AssetImage(
                                   //       'assets/Images/icon_hart.png'),
                                   // ),
-                                  Icon(
-                                    Icons.favorite_border_outlined,
-                                    color: Colors.white,
-                                  ),
-                                  SizedBox(
-                                    width: 5.0,
+                                  IconButton(
+                                    onPressed: () {
+                                      print('like');
+                                    },
+                                    icon: Icon(
+                                      Icons.favorite_border_outlined,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                   Text(
                                     '1.3K',
@@ -277,16 +328,14 @@ class _getPost extends StatelessWidget {
                               ),
                               Row(
                                 children: [
-                                  // Image(
-                                  //   image: AssetImage(
-                                  //       'assets/Images/icon_comments.png'),
-                                  // ),
-                                  Icon(
-                                    Icons.add_comment_rounded,
-                                    color: Colors.white,
-                                  ),
-                                  SizedBox(
-                                    width: 5.0,
+                                  IconButton(
+                                    onPressed: () {
+                                      print('comment');
+                                    },
+                                    icon: Icon(
+                                      Icons.add_comment_rounded,
+                                      color: Colors.white,
+                                    ),
                                   ),
                                   Text(
                                     '666',
@@ -297,22 +346,24 @@ class _getPost extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              // Image(
-                              //   image:
-                              //       AssetImage('assets/Images/icon_share.png'),
-                              // ),
-                              Icon(
-                                Icons.share,
-                                color: Colors.white,
+                              IconButton(
+                                onPressed: () {
+                                  print('share');
+                                },
+                                icon: Icon(
+                                  Icons.share,
+                                  color: Colors.white,
+                                ),
                               ),
-                              // Image(
-                              //   image:
-                              //       AssetImage('assets/Images/icon_save.png'),
-                              // ),
-                              Icon(
-                                Icons.bookmark_border,
-                                color: Colors.white,
-                              )
+                              IconButton(
+                                onPressed: () {
+                                  print('save');
+                                },
+                                icon: Icon(
+                                  Icons.bookmark_border,
+                                  color: Colors.white,
+                                ),
+                              ),
                             ],
                           ),
                         ),
@@ -410,8 +461,15 @@ Widget _getAddStory() {
                   backgroundColor: Colors.transparent,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(30.0),
-                    child: Image(
-                      image: AssetImage('assets/Images/icon_plus.png'),
+                    child: IconButton(
+                      onPressed: () {
+                        print('add story');
+                      },
+                      icon: Icon(
+                        Icons.add,
+                        size: 34,
+                        color: Color(0xffF35383),
+                      ),
                     ),
                   ),
                 ),
