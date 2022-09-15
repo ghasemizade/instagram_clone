@@ -28,7 +28,7 @@ class switchAccountScreen extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    top: 220,
+                    top: 235,
                     child: ClipRRect(
                       child: BackdropFilter(
                         filter: ImageFilter.blur(
@@ -115,12 +115,16 @@ class switchAccountScreen extends StatelessWidget {
                       fontFamily: 'GR',
                     ),
                   ),
-                  Text(
-                    'Sign Up',
-                    style: TextStyle(
-                      color: Color(0xff1C1F2E),
-                      fontFamily: 'GB',
-                      fontSize: 16,
+                  TextButton(
+                    style: TextButton.styleFrom(),
+                    onPressed: () {},
+                    child: Text(
+                      'Sign Up',
+                      style: TextStyle(
+                        color: Color(0xff1C1F2E),
+                        fontFamily: 'GB',
+                        fontSize: 16,
+                      ),
                     ),
                   ),
                 ],
