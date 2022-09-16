@@ -16,38 +16,55 @@ class _ExploreScreenState extends State<ExploreScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-          // child: CustomScrollView(
-          //   slivers: [
-          //     SliverToBoxAdapter(
-          //       child: _getSearchBox(),
-          //     ),
-          //     SliverToBoxAdapter(
-          //       child: _getCategoryTag(),
-          //     ),
-          child: GridView.custom(
-        gridDelegate: SliverQuiltedGridDelegate(
-          crossAxisCount: 3,
-          mainAxisSpacing: 2,
-          crossAxisSpacing: 2,
-          pattern: [
-            QuiltedGridTile(1, 1),
-            QuiltedGridTile(2, 2),
-            QuiltedGridTile(1, 1),
-            QuiltedGridTile(2, 1),
-            QuiltedGridTile(1, 1),
-            QuiltedGridTile(1, 1),
-            QuiltedGridTile(1, 1),
-            QuiltedGridTile(1, 1),
-          ],
+        // child: CustomScrollView(
+        //   slivers: [
+        //     SliverToBoxAdapter(
+        //       child: _getSearchBox(),
+        //     ),
+        //     SliverToBoxAdapter(
+        //       child: _getCategoryTag(),
+        //     ),
+        child: GridView.custom(
+          gridDelegate: SliverQuiltedGridDelegate(
+            crossAxisCount: 3,
+            mainAxisSpacing: 8,
+            crossAxisSpacing: 8,
+            repeatPattern: QuiltedGridRepeatPattern.inverted,
+            pattern: [
+              QuiltedGridTile(1, 1),
+              QuiltedGridTile(2, 2),
+              QuiltedGridTile(1, 1),
+              QuiltedGridTile(2, 1),
+              QuiltedGridTile(1, 1),
+              QuiltedGridTile(1, 1),
+              QuiltedGridTile(1, 1),
+              QuiltedGridTile(1, 1),
+            ],
+          ),
+          childrenDelegate: SliverChildBuilderDelegate(
+            (context, index) {
+              return Container(
+                decoration: BoxDecoration(
+                  //color: Colors.transparent,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10.0),
+                  ),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10.0),
+                  child: FittedBox(
+                    fit: BoxFit.cover,
+                    child: Image(
+                      image: AssetImage('assets/Images/item$index.png'),
+                    ),
+                  ),
+                ),
+              );
+            },
+            childCount: 10,
+          ),
         ),
-        childrenDelegate: SliverChildBuilderDelegate(
-          (context, index) {
-            return Container(
-              color: Colors.amber,
-            );
-          },
-        ),
-      )),
+      ),
     );
   }
 
