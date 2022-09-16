@@ -31,7 +31,6 @@ class _ExploreScreenState extends State<ExploreScreen> {
                   (context, index) {
                     return Container(
                       decoration: BoxDecoration(
-                        //color: Colors.transparent,
                         borderRadius: BorderRadius.all(
                           Radius.circular(10.0),
                         ),
@@ -106,8 +105,8 @@ class _ExploreScreenState extends State<ExploreScreen> {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      Color.fromRGBO(39, 43, 64, 1),
-                      Color.fromRGBO(39, 43, 64, 1),
+                      Color.fromRGBO(39, 43, 64, .9),
+                      Color.fromRGBO(39, 43, 64, .9),
                     ],
                   ),
                 ),
