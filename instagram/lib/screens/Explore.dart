@@ -41,7 +41,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
                         child: FittedBox(
                           fit: BoxFit.cover,
                           child: Image(
-                            image: AssetImage('assets/Images/item$index.png'),
+                            image: AssetImage('assets/Images/item$index.jpg'),
                           ),
                         ),
                       ),
