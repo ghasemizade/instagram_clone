@@ -16,52 +16,57 @@ class _ExploreScreenState extends State<ExploreScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        // child: CustomScrollView(
-        //   slivers: [
-        //     SliverToBoxAdapter(
-        //       child: _getSearchBox(),
-        //     ),
-        //     SliverToBoxAdapter(
-        //       child: _getCategoryTag(),
-        //     ),
-        child: GridView.custom(
-          gridDelegate: SliverQuiltedGridDelegate(
-            crossAxisCount: 3,
-            mainAxisSpacing: 8,
-            crossAxisSpacing: 8,
-            repeatPattern: QuiltedGridRepeatPattern.inverted,
-            pattern: [
-              QuiltedGridTile(1, 1),
-              QuiltedGridTile(2, 2),
-              QuiltedGridTile(1, 1),
-              QuiltedGridTile(2, 1),
-              QuiltedGridTile(1, 1),
-              QuiltedGridTile(1, 1),
-              QuiltedGridTile(1, 1),
-              QuiltedGridTile(1, 1),
+        child: Padding(
+          padding: EdgeInsets.all(3.0),
+          child: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: _getSearchBox(),
+              ),
+              SliverToBoxAdapter(
+                child: _getCategoryTag(),
+              ),
+              SliverGrid(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) {
+                    return Container(
+                      decoration: BoxDecoration(
+                        //color: Colors.transparent,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(10.0),
+                        ),
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10.0),
+                        child: FittedBox(
+                          fit: BoxFit.cover,
+                          child: Image(
+                            image: AssetImage('assets/Images/item$index.png'),
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                  childCount: 24,
+                ),
+                gridDelegate: SliverQuiltedGridDelegate(
+                  crossAxisCount: 3,
+                  mainAxisSpacing: 8,
+                  crossAxisSpacing: 8,
+                  repeatPattern: QuiltedGridRepeatPattern.inverted,
+                  pattern: [
+                    QuiltedGridTile(1, 1),
+                    QuiltedGridTile(2, 2),
+                    QuiltedGridTile(1, 1),
+                    QuiltedGridTile(2, 1),
+                    QuiltedGridTile(1, 1),
+                    QuiltedGridTile(1, 1),
+                    QuiltedGridTile(1, 1),
+                    QuiltedGridTile(1, 1),
+                  ],
+                ),
+              ),
             ],
-          ),
-          childrenDelegate: SliverChildBuilderDelegate(
-            (context, index) {
-              return Container(
-                decoration: BoxDecoration(
-                  //color: Colors.transparent,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10.0),
-                  ),
-                ),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10.0),
-                  child: FittedBox(
-                    fit: BoxFit.cover,
-                    child: Image(
-                      image: AssetImage('assets/Images/item$index.png'),
-                    ),
-                  ),
-                ),
-              );
-            },
-            childCount: 10,
           ),
         ),
       ),
@@ -82,47 +87,50 @@ class _ExploreScreenState extends State<ExploreScreen> {
   ];
 
   Widget _getCategoryTag() {
-    return Container(
-      height: 23,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-        itemCount: category.length,
-        itemBuilder: ((context, index) {
-          return Padding(
-            padding: EdgeInsets.symmetric(horizontal: 17.0),
-            child: Container(
-              height: 25.0,
-              width: 64.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8.0),
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    Color.fromRGBO(39, 43, 64, 1),
-                    Color.fromRGBO(39, 43, 64, 1),
-                  ],
-                ),
-              ),
-              child: Center(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 3,
+    return Padding(
+      padding: EdgeInsets.all(8.0),
+      child: Container(
+        height: 23,
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: category.length,
+          itemBuilder: ((context, index) {
+            return Padding(
+              padding: EdgeInsets.symmetric(horizontal: 17.0),
+              child: Container(
+                height: 25.0,
+                width: 68.0,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8.0),
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Color.fromRGBO(39, 43, 64, 1),
+                      Color.fromRGBO(39, 43, 64, 1),
+                    ],
                   ),
-                  child: Text(
-                    '${category[index]}',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 12.0,
-                      fontFamily: 'GM',
+                ),
+                child: Center(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 5,
+                      vertical: 3,
+                    ),
+                    child: Text(
+                      '${category[index]}',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12.0,
+                        fontFamily: 'GM',
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          );
-        }),
+            );
+          }),
+        ),
       ),
     );
   }
@@ -131,8 +139,8 @@ class _ExploreScreenState extends State<ExploreScreen> {
 Widget _getSearchBox() {
   return Padding(
     padding: EdgeInsets.symmetric(
-      horizontal: 17,
-      vertical: 24,
+      horizontal: 12,
+      vertical: 10,
     ),
     child: ClipRRect(
       child: BackdropFilter(
