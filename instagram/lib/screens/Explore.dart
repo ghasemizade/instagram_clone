@@ -96,32 +96,41 @@ class _ExploreScreenState extends State<ExploreScreen> {
           itemBuilder: ((context, index) {
             return Padding(
               padding: EdgeInsets.symmetric(horizontal: 17.0),
-              child: Container(
-                height: 25.0,
-                width: 68.0,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8.0),
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Color.fromRGBO(39, 43, 64, .9),
-                      Color.fromRGBO(39, 43, 64, .9),
-                    ],
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8.0),
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(
+                    sigmaX: 30.0,
+                    sigmaY: 30.0,
                   ),
-                ),
-                child: Center(
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 5,
-                      vertical: 3,
+                  child: Container(
+                    height: 25.0,
+                    width: 68.0,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.0),
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Color.fromRGBO(0, 0, 0, .3),
+                          Color.fromRGBO(0, 0, 0, .3),
+                        ],
+                      ),
                     ),
-                    child: Text(
-                      '${category[index]}',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 12.0,
-                        fontFamily: 'GM',
+                    child: Center(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 5,
+                          vertical: 3,
+                        ),
+                        child: Text(
+                          '${category[index]}',
+                          style: TextStyle(
+                              color: Color(0xff1C1F2E),
+                              fontSize: 12.0,
+                              fontFamily: 'GB',
+                              fontWeight: FontWeight.w500),
+                        ),
                       ),
                     ),
                   ),
@@ -142,6 +151,7 @@ Widget _getSearchBox() {
       vertical: 10,
     ),
     child: ClipRRect(
+      borderRadius: BorderRadius.circular(13),
       child: BackdropFilter(
         filter: ImageFilter.blur(
           sigmaX: 30.0,
@@ -155,8 +165,8 @@ Widget _getSearchBox() {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Color.fromRGBO(39, 43, 64, 1),
-                Color.fromRGBO(39, 43, 64, 1),
+                Color.fromRGBO(0, 0, 0, .3),
+                Color.fromRGBO(0, 0, 0, .3),
               ],
             ),
             borderRadius: BorderRadius.all(
@@ -170,7 +180,7 @@ Widget _getSearchBox() {
                 padding: EdgeInsets.all(8.0),
                 child: Icon(
                   Icons.search,
-                  color: Colors.white,
+                  color: Color(0xff1C1F2E),
                 ),
               ),
               Expanded(
@@ -178,7 +188,8 @@ Widget _getSearchBox() {
                   decoration: InputDecoration(
                     hintText: 'search...',
                     hintStyle: TextStyle(
-                      color: Colors.white,
+                      color: Color(0xff1C1F2E),
+                      fontFamily: 'GM',
                     ),
                     enabledBorder: InputBorder.none,
                     focusedBorder: InputBorder.none,
