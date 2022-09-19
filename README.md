@@ -16,4 +16,5 @@
 - [x] Implementation of home screen UI for the logged in user.
 - [x] Creating a storybox list with slivers.
 - [x] Also making a list of posts with slivers.
+- [x] Implementation of galary screen with container and gridView. 
 
