@@ -59,8 +59,15 @@ class _galaryItemsState extends State<galaryItems> {
                   borderRadius: BorderRadius.circular(
                     15.0,
                   ),
-                  color: Color(
-                    0xff1C1F2E,
+                  color: Colors.transparent,
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20.0),
+                  child: FittedBox(
+                    fit: BoxFit.cover,
+                    child: Image(
+                      image: AssetImage('assets/Images/item0.jpg'),
+                    ),
                   ),
                 ),
               ),
@@ -91,7 +98,7 @@ Widget _getGridView() {
             width: 128.0,
             decoration: BoxDecoration(
               color: Color(0xff1C1F2E),
-              borderRadius: BorderRadius.circular(10.0),
+              borderRadius: BorderRadius.circular(20.0),
             ),
           ),
         );
