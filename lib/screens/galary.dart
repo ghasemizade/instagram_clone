@@ -46,8 +46,56 @@ class _galaryItemsState extends State<galaryItems> {
         ],
       ),
       body: SafeArea(
-        child: Text('Hosein'),
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: 17.0,
+              ),
+              child: Container(
+                height: 375,
+                width: 394,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    15.0,
+                  ),
+                  color: Color(
+                    0xff1C1F2E,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            _getGridView(),
+          ],
+        ),
       ),
     );
   }
+}
+
+Widget _getGridView() {
+  return Expanded(
+    child: GridView.builder(
+      itemCount: 30,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 3,
+      ),
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Container(
+            height: 128.0,
+            width: 128.0,
+            decoration: BoxDecoration(
+              color: Color(0xff1C1F2E),
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+          ),
+        );
+      },
+    ),
+  );
 }
