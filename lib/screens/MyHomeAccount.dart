@@ -12,7 +12,7 @@ class _MyHomeAccountState extends State<MyHomeAccount> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        alignment: AlignmentDirectional.bottomCenter,
+        alignment: AlignmentDirectional.topCenter,
         children: [
           _getImageContainer(),
           _getContainerBox(),
@@ -27,7 +27,7 @@ Widget _getImageContainer() {
     left: 0,
     right: 0,
     bottom: 0,
-    top: 40,
+    top: 0,
     child: Column(
       children: [
         Image(
@@ -43,24 +43,19 @@ Widget _getImageContainer() {
 }
 
 Widget _getContainerBox() {
-  return Column(
-    children: [
-      Expanded(
-        child: Container(),
-      ),
-      Expanded(
-        child: ClipRRect(
-          child: Container(
-            decoration: BoxDecoration(
-              color: Color(0xff1C1F2E),
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(30),
-                topRight: Radius.circular(30),
-              ),
-            ),
-          ),
+  return Positioned(
+    left: 0,
+    right: 0,
+    bottom: 0,
+    top: 140,
+    child: Container(
+      decoration: BoxDecoration(
+        color: Color(0xff1C1F2E),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30),
+          topRight: Radius.circular(30),
         ),
       ),
-    ],
+    ),
   );
 }
