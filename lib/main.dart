@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/screens/Explore.dart';
+import 'package:instagram/screens/MyHomeAccount.dart';
 import 'package:instagram/screens/galary.dart';
 
 import 'package:instagram/screens/login_page.dart';
@@ -35,7 +36,7 @@ class Application extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: galaryItems(),
+      home: MyHomeAccount(),
     );
   }
 }
