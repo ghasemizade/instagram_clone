@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/screens/Explore.dart';
 import 'package:instagram/screens/MyHomeAccount.dart';
 import 'package:instagram/screens/galary.dart';
-
 import 'package:instagram/screens/login_page.dart';
 
 void main() {
@@ -36,7 +34,7 @@ class Application extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: MyHomeAccount(),
+      home: galaryItems(),
     );
   }
 }
@@ -61,7 +59,6 @@ class _splashScreenState extends State<splashScreen> {
       backgroundColor: Color(0xff1C1F2E),
       body: Container(
         decoration: BoxDecoration(
-          // color: Color(0xff1C1F2E),
           color: Colors.white,
           image: DecorationImage(
             repeat: ImageRepeat.repeat,

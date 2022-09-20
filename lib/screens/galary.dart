@@ -100,6 +100,13 @@ Widget _getGridView() {
               color: Color(0xff1C1F2E),
               borderRadius: BorderRadius.circular(20.0),
             ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(13.0),
+              child: Image(
+                image: AssetImage('assets/Images/item$index.jpg'),
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
         );
       },
