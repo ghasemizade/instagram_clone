@@ -34,9 +34,6 @@ Widget _getImageContainer() {
           image: AssetImage('assets/Images/Rectangle.png'),
           fit: BoxFit.cover,
         ),
-        // Expanded(
-        //   child: Container(),
-        // ),
       ],
     ),
   );
@@ -47,7 +44,7 @@ Widget _getContainerBox() {
     left: 0,
     right: 0,
     bottom: 0,
-    top: 140,
+    top: 150,
     child: Container(
       decoration: BoxDecoration(
         color: Color(0xff1C1F2E),
