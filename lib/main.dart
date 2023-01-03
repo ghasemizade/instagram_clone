@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/screens/Explore.dart';
 import 'package:instagram/screens/MyHomeAccount.dart';
 import 'package:instagram/screens/galary.dart';
+import 'package:instagram/screens/home_screen.dart';
+import 'package:instagram/screens/log_screen.dart';
 import 'package:instagram/screens/login_page.dart';
 
 void main() {
@@ -34,7 +37,7 @@ class Application extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: galaryItems(),
+      home: logScreen(),
     );
   }
 }
