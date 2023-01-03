@@ -22,30 +22,66 @@ class _logScreenState extends State<logScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xff1C1F2E),
       body: SafeArea(
-        child: Container(
-          color: Color(0xff1C1F2E),
-          height: 55,
-          child: TabBar(
-            labelStyle: TextStyle(
-              fontSize: 16,
-              fontFamily: 'GB',
+        child: Column(
+          children: [
+            Container(
+              color: Color(0xff1C1F2E),
+              height: 55,
+              child: TabBar(
+                labelStyle: TextStyle(
+                  fontSize: 16,
+                  fontFamily: 'GB',
+                ),
+                indicatorPadding: EdgeInsets.symmetric(horizontal: 18),
+                dragStartBehavior: DragStartBehavior.down,
+                indicatorColor: Color(0xffF35383),
+                controller: _tabController,
+                tabs: [
+                  Tab(
+                    text: 'Following',
+                  ),
+                  Tab(
+                    text: 'You',
+                  ),
+                ],
+              ),
             ),
-            indicatorPadding: EdgeInsets.symmetric(horizontal: 18),
-            dragStartBehavior: DragStartBehavior.down,
-            indicatorColor: Color(0xffF35383),
-            controller: _tabController,
-            tabs: [
-              Tab(
-                text: 'Following',
+            Expanded(
+              child: TabBarView(
+                controller: _tabController,
+                children: [
+                  CustomScrollView(
+                    slivers: [
+                      SliverList(
+                        delegate: SliverChildBuilderDelegate(
+                          (context, index) => _getRow(),
+                        ),
+                      ),
+                    ],
+                  ),
+                  CustomScrollView(
+                    slivers: [
+                      SliverList(
+                        delegate: SliverChildBuilderDelegate(
+                          (context, index) => Text('Hosein'),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-              Tab(
-                text: 'You',
-              ),
-            ],
-          ),
+            )
+          ],
         ),
       ),
+    );
+  }
+
+  Widget _getRow() {
+    return Row(
+      children: [],
     );
   }
 }
