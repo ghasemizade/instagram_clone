@@ -57,6 +57,7 @@ class _logScreenState extends State<logScreen>
                       SliverList(
                         delegate: SliverChildBuilderDelegate(
                           (context, index) => _getRow(),
+                          childCount: 20,
                         ),
                       ),
                     ],
@@ -80,8 +81,36 @@ class _logScreenState extends State<logScreen>
   }
 
   Widget _getRow() {
-    return Row(
-      children: [],
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 20),
+      child: Row(
+        children: [
+          Container(
+            height: 6,
+            width: 6,
+            decoration: BoxDecoration(
+              color: Color(0xffF35383),
+              shape: BoxShape.circle,
+            ),
+          ),
+          SizedBox(
+            width: 7,
+          ),
+          SizedBox(
+            height: 40,
+            width: 40,
+            child: ClipRRect(
+              borderRadius: BorderRadius.all(
+                Radius.circular(10),
+              ),
+              child: FittedBox(
+                fit: BoxFit.cover,
+                child: Image.asset("assets/Images/HoseinAvatar.jpg"),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
