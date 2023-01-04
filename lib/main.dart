@@ -37,7 +37,7 @@ class Application extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: logScreen(),
+      home: MyHomeAccount(),
     );
   }
 }
