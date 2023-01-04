@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -108,6 +110,91 @@ class _logScreenState extends State<logScreen>
                 child: Image.asset("assets/Images/HoseinAvatar.jpg"),
               ),
             ),
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Text(
+                    'HoseinGhasemizade',
+                    style: TextStyle(
+                        fontFamily: 'GB', color: Colors.white, fontSize: 12),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    'Started Following',
+                    style: TextStyle(
+                      fontFamily: 'GM',
+                      color: Color(
+                        0xffC5C5C5,
+                      ),
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Text(
+                    'You',
+                    style: TextStyle(
+                        fontFamily: 'GB', color: Colors.white, fontSize: 12),
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text(
+                    '3min',
+                    style: TextStyle(
+                      fontFamily: 'GM',
+                      color: Color(
+                        0xffC5C5C5,
+                      ),
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
+          Spacer(),
+          Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: OutlinedButton(
+              onPressed: () {},
+              child: Text(
+                'Message',
+                style: TextStyle(
+                  fontFamily: 'GB',
+                  color: Color(0xffc5c5c5),
+                ),
+              ),
+              style: OutlinedButton.styleFrom(
+                side: BorderSide(
+                  color: Color(0xffC5c5c5),
+                  width: 2,
+                ),
+              ),
+            ),
+            // child: SizedBox(
+            //   height: 40,
+            //   width: 40,
+            //   child: ClipRRect(
+            //     borderRadius: BorderRadius.all(
+            //       Radius.circular(10),
+            //     ),
+            //     child: FittedBox(
+            //       fit: BoxFit.cover,
+            //       child: Image.asset("assets/Images/item1.jpg"),
+            //     ),
+            //   ),
+            // ),
           ),
         ],
       ),
