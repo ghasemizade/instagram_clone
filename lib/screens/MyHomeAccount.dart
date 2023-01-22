@@ -13,43 +13,50 @@ class _MyHomeAccountState extends State<MyHomeAccount> {
     return Scaffold(
       backgroundColor: Color(0xff1C1F2E),
       body: NestedScrollView(
-        headerSliverBuilder: ((context, innerBoxIsScrolled) {
-          return [
-            SliverAppBar(
-              pinned: true,
-              toolbarHeight: 50,
-              actions: [
-                Padding(
-                  padding: EdgeInsets.only(right: 18, top: 20),
-                  child: Icon(Icons.menu),
-                ),
-              ],
-              bottom: PreferredSize(
-                child: Container(
-                  height: 15,
-                  decoration: BoxDecoration(
-                    color: Color(0xff1C1F2E),
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(15),
-                      topRight: Radius.circular(15),
+          headerSliverBuilder: ((context, innerBoxIsScrolled) {
+            return [
+              SliverAppBar(
+                // pinned: true,
+                toolbarHeight: 50,
+                actions: [
+                  Padding(
+                    padding: EdgeInsets.only(right: 18, top: 20),
+                    child: Icon(Icons.menu),
+                  ),
+                ],
+                bottom: PreferredSize(
+                  child: Container(
+                    height: 15,
+                    decoration: BoxDecoration(
+                      color: Color(0xff1C1F2E),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(15),
+                        topRight: Radius.circular(15),
+                      ),
                     ),
                   ),
+                  preferredSize: Size.fromHeight(5),
                 ),
-                preferredSize: Size.fromHeight(5),
-              ),
-              flexibleSpace: FlexibleSpaceBar(
-                background: Image.asset(
-                  'assets/Images/Rectangle.png',
-                  fit: BoxFit.cover,
+                flexibleSpace: FlexibleSpaceBar(
+                  background: Image.asset(
+                    'assets/Images/Rectangle.png',
+                    fit: BoxFit.cover,
+                  ),
                 ),
+                expandedHeight: 150,
+                backgroundColor: Color(0xff1C1F2E),
               ),
-              expandedHeight: 150,
-              backgroundColor: Color(0xff1C1F2E),
-            )
-          ];
-        }),
-        body: _getContainerBox(),
-      ),
+              SliverToBoxAdapter(
+                child: _getContainerBox(),
+              ),
+              SliverPersistentHeader(
+                pinned: true,
+                floating: true,
+                delegate: TabBarViewDelegate(),
+              ),
+            ];
+          }),
+          body: Container()),
     );
   }
 }
@@ -142,4 +149,30 @@ Widget _getContainerBox() {
       ),
     ),
   );
+}
+
+class TabBarViewDelegate extends SliverPersistentHeaderDelegate {
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return Container(
+      child: ClipRRect(
+        child: FittedBox(
+          fit: BoxFit.cover,
+          child: Image.asset('assets/Images/pattern1.png'),
+        ),
+      ),
+    );
+  }
+
+  @override
+  double get maxExtent => 300;
+
+  @override
+  double get minExtent => 100;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
+    return false;
+  }
 }
