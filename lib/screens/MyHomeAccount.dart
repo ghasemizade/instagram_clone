@@ -12,7 +12,9 @@ class _MyHomeAccountState extends State<MyHomeAccount> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff1C1F2E),
-      body: NestedScrollView(
+      body: DefaultTabController(
+        length: 2,
+        child: NestedScrollView(
           headerSliverBuilder: ((context, innerBoxIsScrolled) {
             return [
               SliverAppBar(
@@ -52,11 +54,33 @@ class _MyHomeAccountState extends State<MyHomeAccount> {
               SliverPersistentHeader(
                 pinned: true,
                 floating: true,
-                delegate: TabBarViewDelegate(),
+                delegate: TabBarViewDelegate(
+                  TabBar(
+                    tabs: [
+                      Tab(
+                        text: "test1",
+                      ),
+                      Tab(
+                        text: "test2",
+                      )
+                    ],
+                  ),
+                ),
               ),
             ];
           }),
-          body: Container()),
+          body: TabBarView(
+            children: [
+              Container(
+                color: Colors.amber,
+              ),
+              Container(
+                color: Colors.red,
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
@@ -152,6 +176,9 @@ Widget _getContainerBox() {
 }
 
 class TabBarViewDelegate extends SliverPersistentHeaderDelegate {
+  TabBarViewDelegate(this._tabBar);
+  final TabBar _tabBar;
+
   @override
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
@@ -166,10 +193,10 @@ class TabBarViewDelegate extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  double get maxExtent => 300;
+  double get maxExtent => _tabBar.preferredSize.height;
 
   @override
-  double get minExtent => 100;
+  double get minExtent => _tabBar.preferredSize.height;
 
   @override
   bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
