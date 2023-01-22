@@ -16,9 +16,17 @@ class _MyHomeAccountState extends State<MyHomeAccount> {
         headerSliverBuilder: ((context, innerBoxIsScrolled) {
           return [
             SliverAppBar(
+              pinned: true,
+              toolbarHeight: 50,
+              actions: [
+                Padding(
+                  padding: EdgeInsets.only(right: 18, top: 20),
+                  child: Icon(Icons.menu),
+                ),
+              ],
               bottom: PreferredSize(
                 child: Container(
-                  height: 20,
+                  height: 15,
                   decoration: BoxDecoration(
                     color: Color(0xff1C1F2E),
                     borderRadius: BorderRadius.only(
@@ -27,7 +35,7 @@ class _MyHomeAccountState extends State<MyHomeAccount> {
                     ),
                   ),
                 ),
-                preferredSize: Size.fromHeight(10),
+                preferredSize: Size.fromHeight(5),
               ),
               flexibleSpace: FlexibleSpaceBar(
                 background: Image.asset(
@@ -126,7 +134,10 @@ Widget _getContainerBox() {
             ),
           ),
           Spacer(),
-          Image.asset('assets/Images/icon_profile_edit.png'),
+          Padding(
+            padding: EdgeInsets.only(right: 18),
+            child: Image.asset('assets/Images/icon_profile_edit.png'),
+          ),
         ],
       ),
     ),
