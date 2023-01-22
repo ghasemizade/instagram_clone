@@ -104,13 +104,6 @@ class _MyHomeAccountState extends State<MyHomeAccount> {
 
 Widget _getContainerBox() {
   return Container(
-    // decoration: BoxDecoration(
-    //   color: Color(0xff1C1F2E),
-    //   borderRadius: BorderRadius.only(
-    //     topLeft: Radius.circular(30),
-    //     topRight: Radius.circular(30),
-    //   ),
-    // ),
     child: Padding(
       padding: EdgeInsets.only(top: 40, left: 20),
       child: Row(
@@ -183,20 +176,22 @@ class TabBarViewDelegate extends SliverPersistentHeaderDelegate {
   Widget build(
       BuildContext context, double shrinkOffset, bool overlapsContent) {
     return Container(
-      child: ClipRRect(
-        child: FittedBox(
-          fit: BoxFit.cover,
-          child: Image.asset('assets/Images/pattern1.png'),
-        ),
-      ),
+      color: Color(0xff1C1F2E),
+      child: _tabBar,
+      // child: ClipRRect(
+      //   child: FittedBox(
+      //     fit: BoxFit.cover,
+      //     child: Image.asset('assets/Images/pattern1.png'),
+      //   ),
+      // ),
     );
   }
 
   @override
-  double get maxExtent => _tabBar.preferredSize.height;
+  double get maxExtent => _tabBar.preferredSize.height + 5;
 
   @override
-  double get minExtent => _tabBar.preferredSize.height;
+  double get minExtent => _tabBar.preferredSize.height + 5;
 
   @override
   bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
