@@ -59,10 +59,11 @@ class _MyHomeAccountState extends State<MyHomeAccount> {
                   TabBar(
                     tabs: [
                       Tab(
-                        text: "test1",
+                        child: Image.asset('assets/Images/icon_tab_posts.png'),
                       ),
                       Tab(
-                        text: "test2",
+                        child:
+                            Image.asset('assets/Images/icon_tab_bookmark.png'),
                       )
                     ],
                   ),
@@ -105,9 +106,6 @@ class _MyHomeAccountState extends State<MyHomeAccount> {
                       pattern: [
                         QuiltedGridTile(1, 1),
                         QuiltedGridTile(2, 2),
-                        QuiltedGridTile(1, 1),
-                        QuiltedGridTile(2, 1),
-                        QuiltedGridTile(1, 1),
                         QuiltedGridTile(1, 1),
                         QuiltedGridTile(1, 1),
                         QuiltedGridTile(1, 1),
