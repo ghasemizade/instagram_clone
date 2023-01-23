@@ -38,7 +38,7 @@ class Application extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: MainScreen(),
+      home: splashScreen(),
     );
   }
 }
@@ -126,7 +126,7 @@ Future navigateToLoginScreen(context) async {
   Navigator.pushReplacement(
     context,
     MaterialPageRoute(builder: (context) {
-      return loginPage();
+      return MainScreen();
     }),
   );
 }
