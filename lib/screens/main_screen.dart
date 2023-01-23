@@ -21,9 +21,12 @@ class _MainScreenState extends State<MainScreen> {
             _selectedNavigationBottom = index;
           });
         },
+        showUnselectedLabels: false,
         items: [
           BottomNavigationBarItem(
-            icon: Image.asset("assets/Images/icon_home.png"),
+            icon: _selectedNavigationBottom == 0
+                ? Image.asset("assets/Images/icon_active_home.png")
+                : Image.asset("assets/Images/icon_home.png"),
             label: '',
           ),
           BottomNavigationBarItem(
@@ -33,7 +36,9 @@ class _MainScreenState extends State<MainScreen> {
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset("assets/Images/icon_add_navigation.png"),
+            icon: _selectedNavigationBottom == 2
+                ? Image.asset("assets/Images/icon_add_navigation_active.png")
+                : Image.asset("assets/Images/icon_add_navigation.png"),
             label: '',
           ),
           BottomNavigationBarItem(
@@ -45,9 +50,30 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
-      body: Center(
-        child: Text('hosein'),
+      body: IndexedStack(
+        index: _selectedNavigationBottom,
+        children: getLayout(),
       ),
     );
+  }
+
+  List<Widget> getLayout() {
+    return <Widget>[
+      Container(
+        color: Colors.red,
+        child: Center(
+          child: TextField(),
+        ),
+      ),
+      Container(
+        color: Colors.amber,
+      ),
+      Container(
+        color: Colors.blue,
+      ),
+      Container(
+        color: Colors.cyan,
+      ),
+    ];
   }
 }
