@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class MyHomeAccount extends StatefulWidget {
   MyHomeAccount({Key? key}) : super(key: key);
@@ -71,8 +72,49 @@ class _MyHomeAccountState extends State<MyHomeAccount> {
           }),
           body: TabBarView(
             children: [
-              Container(
-                color: Colors.amber,
+              CustomScrollView(
+                slivers: [
+                  SliverGrid(
+                    delegate: SliverChildBuilderDelegate(
+                      (context, index) {
+                        return Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10.0),
+                            ),
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
+                            child: FittedBox(
+                              fit: BoxFit.cover,
+                              child: Image(
+                                image:
+                                    AssetImage('assets/Images/item$index.jpg'),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                      childCount: 24,
+                    ),
+                    gridDelegate: SliverQuiltedGridDelegate(
+                      crossAxisCount: 3,
+                      mainAxisSpacing: 8,
+                      crossAxisSpacing: 8,
+                      repeatPattern: QuiltedGridRepeatPattern.inverted,
+                      pattern: [
+                        QuiltedGridTile(1, 1),
+                        QuiltedGridTile(2, 2),
+                        QuiltedGridTile(1, 1),
+                        QuiltedGridTile(2, 1),
+                        QuiltedGridTile(1, 1),
+                        QuiltedGridTile(1, 1),
+                        QuiltedGridTile(1, 1),
+                        QuiltedGridTile(1, 1),
+                      ],
+                    ),
+                  ),
+                ],
               ),
               Container(
                 color: Colors.red,
