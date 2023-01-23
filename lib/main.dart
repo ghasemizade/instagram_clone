@@ -5,6 +5,7 @@ import 'package:instagram/screens/galary.dart';
 import 'package:instagram/screens/home_screen.dart';
 import 'package:instagram/screens/log_screen.dart';
 import 'package:instagram/screens/login_page.dart';
+import 'package:instagram/screens/main_screen.dart';
 
 void main() {
   runApp(Application());
@@ -37,7 +38,7 @@ class Application extends StatelessWidget {
         ),
       ),
       debugShowCheckedModeBanner: false,
-      home: MyHomeAccount(),
+      home: MainScreen(),
     );
   }
 }
