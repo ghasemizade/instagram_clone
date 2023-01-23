@@ -78,42 +78,45 @@ class _MyHomeAccountState extends State<MyHomeAccount> {
             children: [
               CustomScrollView(
                 slivers: [
-                  SliverGrid(
-                    delegate: SliverChildBuilderDelegate(
-                      (context, index) {
-                        return Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10.0),
-                            ),
-                          ),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10.0),
-                            child: FittedBox(
-                              fit: BoxFit.cover,
-                              child: Image(
-                                image:
-                                    AssetImage('assets/Images/item$index.jpg'),
+                  SliverPadding(
+                    padding: EdgeInsets.only(top: 10, left: 12, right: 12),
+                    sliver: SliverGrid(
+                      delegate: SliverChildBuilderDelegate(
+                        (context, index) {
+                          return Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10.0),
                               ),
                             ),
-                          ),
-                        );
-                      },
-                      childCount: 9,
-                    ),
-                    gridDelegate: SliverQuiltedGridDelegate(
-                      crossAxisCount: 3,
-                      mainAxisSpacing: 8,
-                      crossAxisSpacing: 8,
-                      repeatPattern: QuiltedGridRepeatPattern.inverted,
-                      pattern: [
-                        QuiltedGridTile(1, 1),
-                        QuiltedGridTile(2, 2),
-                        QuiltedGridTile(1, 1),
-                        QuiltedGridTile(1, 1),
-                        QuiltedGridTile(1, 1),
-                        QuiltedGridTile(1, 1),
-                      ],
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10.0),
+                              child: FittedBox(
+                                fit: BoxFit.cover,
+                                child: Image(
+                                  image: AssetImage(
+                                      'assets/Images/item$index.jpg'),
+                                ),
+                              ),
+                            ),
+                          );
+                        },
+                        childCount: 9,
+                      ),
+                      gridDelegate: SliverQuiltedGridDelegate(
+                        crossAxisCount: 3,
+                        mainAxisSpacing: 8,
+                        crossAxisSpacing: 8,
+                        repeatPattern: QuiltedGridRepeatPattern.inverted,
+                        pattern: [
+                          QuiltedGridTile(1, 1),
+                          QuiltedGridTile(2, 2),
+                          QuiltedGridTile(1, 1),
+                          QuiltedGridTile(1, 1),
+                          QuiltedGridTile(1, 1),
+                          QuiltedGridTile(1, 1),
+                        ],
+                      ),
                     ),
                   ),
                 ],
