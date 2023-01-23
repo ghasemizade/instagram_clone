@@ -57,12 +57,15 @@ class _MyHomeAccountState extends State<MyHomeAccount> {
                 floating: true,
                 delegate: TabBarViewDelegate(
                   TabBar(
+                    indicatorPadding: EdgeInsets.symmetric(horizontal: 20),
+                    indicatorWeight: 2.5,
+                    indicatorColor: Color(0xffF35383),
                     tabs: [
                       Tab(
-                        child: Image.asset('assets/Images/icon_tab_posts.png'),
+                        icon: Image.asset('assets/Images/icon_tab_posts.png'),
                       ),
                       Tab(
-                        child:
+                        icon:
                             Image.asset('assets/Images/icon_tab_bookmark.png'),
                       )
                     ],
@@ -96,7 +99,7 @@ class _MyHomeAccountState extends State<MyHomeAccount> {
                           ),
                         );
                       },
-                      childCount: 24,
+                      childCount: 9,
                     ),
                     gridDelegate: SliverQuiltedGridDelegate(
                       crossAxisCount: 3,
@@ -109,13 +112,53 @@ class _MyHomeAccountState extends State<MyHomeAccount> {
                         QuiltedGridTile(1, 1),
                         QuiltedGridTile(1, 1),
                         QuiltedGridTile(1, 1),
+                        QuiltedGridTile(1, 1),
                       ],
                     ),
                   ),
                 ],
               ),
-              Container(
-                color: Colors.red,
+              CustomScrollView(
+                slivers: [
+                  SliverGrid(
+                    delegate: SliverChildBuilderDelegate(
+                      (context, index) {
+                        return Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10.0),
+                            ),
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10.0),
+                            child: FittedBox(
+                              fit: BoxFit.cover,
+                              child: Image(
+                                image:
+                                    AssetImage('assets/Images/item$index.jpg'),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                      childCount: 9,
+                    ),
+                    gridDelegate: SliverQuiltedGridDelegate(
+                      crossAxisCount: 3,
+                      mainAxisSpacing: 8,
+                      crossAxisSpacing: 8,
+                      repeatPattern: QuiltedGridRepeatPattern.inverted,
+                      pattern: [
+                        QuiltedGridTile(1, 1),
+                        QuiltedGridTile(2, 2),
+                        QuiltedGridTile(1, 1),
+                        QuiltedGridTile(1, 1),
+                        QuiltedGridTile(1, 1),
+                        QuiltedGridTile(1, 1),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
